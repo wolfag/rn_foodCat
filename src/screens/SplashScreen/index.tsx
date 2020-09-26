@@ -1,7 +1,7 @@
-import React, {useEffect} from 'react';
-import {View, StyleSheet, Image, Dimensions} from 'react-native';
-import image from '../../assets/images/dinner.png';
 import {useNavigation} from '@react-navigation/native';
+import React, {useEffect} from 'react';
+import {Dimensions, Image, StyleSheet, View} from 'react-native';
+import image from '../../assets/images/dinner.png';
 
 const {width} = Dimensions.get('screen');
 
@@ -10,13 +10,9 @@ const Splash = () => {
 
   useEffect(() => {
     setTimeout(() => {
-      gotoLogin();
+      navigation.navigate('LoginScreen');
     }, 3000);
-  }, []);
-
-  const gotoLogin = () => {
-    navigation.navigate('LoginScreen');
-  };
+  }, [navigation]);
 
   return (
     <View style={styles.container}>

@@ -1,7 +1,25 @@
 import React from 'react';
-import {TouchableOpacity, Text, StyleSheet} from 'react-native';
+import {
+  TouchableOpacity,
+  Text,
+  StyleSheet,
+  TouchableOpacityProps,
+  StyleProp,
+  ViewStyle,
+  TextStyle,
+} from 'react-native';
 
-function MyButton(props) {
+export interface MyButtonProps {
+  label: string;
+  round?: boolean;
+  bold?: boolean;
+  labelColor?: string;
+  bgColor?: string;
+  headIcon?: JSX.Element;
+  tailIcon?: JSX.Element;
+}
+
+function MyButton(props: MyButtonProps & TouchableOpacityProps) {
   const {
     label,
     round,
@@ -12,8 +30,8 @@ function MyButton(props) {
     tailIcon,
     ...rest
   } = props;
-  const _labelStyle = [styles.label];
-  const _btnStyle = [styles.btn];
+  const _labelStyle: StyleProp<TextStyle>[] = [styles.label];
+  const _btnStyle: StyleProp<ViewStyle>[] = [styles.btn];
 
   if (round) {
     _btnStyle.push(styles.round);

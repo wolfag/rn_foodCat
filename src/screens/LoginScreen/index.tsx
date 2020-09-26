@@ -6,7 +6,7 @@ import MyButton from '../../components/MyButton';
 import googleImg from '../../assets/images/google.png';
 import facebookImg from '../../assets/images/facebook.png';
 
-function LoginScreen(props) {
+function LoginScreen() {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.wrapper}>
