@@ -1,15 +1,7 @@
 import React, {useCallback, useEffect, useState} from 'react';
-import {
-  Image,
-  StyleSheet,
-  Text,
-  TextInput,
-  TextInputProps,
-  View,
-} from 'react-native';
+import {StyleSheet, Text, TextInput, TextInputProps, View} from 'react-native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
-import eyeOff from '../assets/images/eyeOff.png';
-import eyeOn from '../assets/images/eyeOn.png';
+import Feather from 'react-native-vector-icons/Feather';
 import {MyButtonProps} from './MyButton';
 
 export interface MyInputProps {
@@ -40,7 +32,11 @@ function MyInput(props: MyButtonProps & TextInputProps) {
         />
         {secureTextEntry && (
           <TouchableOpacity onPress={toggle}>
-            <Image source={isHidden ? eyeOff : eyeOn} style={styles.icon} />
+            <Feather
+              name={isHidden ? 'eye' : 'eye-off'}
+              size={20}
+              style={styles.icon}
+            />
           </TouchableOpacity>
         )}
       </View>
@@ -68,8 +64,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   icon: {
-    width: 15,
-    height: 15,
     marginRight: 10,
   },
 });
