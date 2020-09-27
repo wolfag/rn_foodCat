@@ -1,56 +1,78 @@
 import React from 'react';
-import {View, StyleSheet, Text, SafeAreaView, Image} from 'react-native';
-import MyInput from '../../components/MyInput';
-import MyButton from '../../components/MyButton';
-
-import googleImg from '../../assets/images/google.png';
+import {Image, SafeAreaView, StyleSheet, Text, View} from 'react-native';
 import facebookImg from '../../assets/images/facebook.png';
+import googleImg from '../../assets/images/google.png';
+import Block from '../../components/Block';
+import MyButton from '../../components/MyButton';
+import MyInput from '../../components/MyInput';
 
 function LoginScreen() {
   return (
     <SafeAreaView style={styles.container}>
-      <View style={styles.wrapper}>
+      <Block padding={14}>
         <Text style={styles.header}>Sign In</Text>
         <View>
-          <MyInput label="Email" placeholder="Email" />
-          <MyInput label="Password" placeholder="Password" secureTextEntry />
+          <MyInput label="Email" placeholder=" Your Email" border round />
+          <MyInput
+            label="Password"
+            placeholder="Your Password"
+            border
+            round
+            secureTextEntry
+          />
         </View>
         <View style={styles.btnForgetContainer}>
           <MyButton label="Forget Password?" bold />
         </View>
-        <MyButton label="SignIn" labelColor="#fff" bold bgColor="red" round />
+        <MyButton
+          label="SignIn"
+          textColor="#fff"
+          bold
+          color="red"
+          round
+          centered
+          middle
+          padding={10}
+        />
         <Text style={styles.or}>Or</Text>
-        <View style={styles.btnSocialGroup}>
-          <View style={styles.btnSocial}>
-            <MyButton
-              label="Google"
-              round
-              bold
-              headIcon={<Image source={googleImg} style={[styles.icon]} />}
-            />
-          </View>
+        <Block direction="row">
+          <MyButton
+            label="Google"
+            round
+            bold
+            middle
+            centered
+            direction="row"
+            padding={10}
+            block
+            border
+            headIcon={<Image source={googleImg} style={[styles.icon]} />}
+          />
           <View style={{width: 10}} />
-          <View style={styles.btnSocial}>
-            <MyButton
-              label="Facebook"
-              round
-              labelColor="#fff"
-              bgColor="#3A559F"
-              bold
-              headIcon={
-                <Image
-                  source={facebookImg}
-                  style={[styles.icon, {backgroundColor: '#fff'}]}
-                />
-              }
-            />
-          </View>
-        </View>
+          <MyButton
+            label="Facebook"
+            round
+            textColor="#fff"
+            color="#3A559F"
+            middle
+            centered
+            direction="row"
+            padding={10}
+            bold
+            block
+            headIcon={
+              <Image
+                source={facebookImg}
+                style={[styles.icon, {backgroundColor: '#fff'}]}
+              />
+            }
+          />
+        </Block>
         <View style={styles.signupContainer}>
           <Text>Not yet a member,</Text>
-          <MyButton label="Sign Up" labelColor="red" />
+          <MyButton label="Sign Up" textColor="red" />
         </View>
-      </View>
+      </Block>
     </SafeAreaView>
   );
 }
@@ -68,25 +90,10 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     marginBottom: 20,
   },
-  wrapper: {
-    padding: 14,
-  },
   btnForgetContainer: {
     flexDirection: 'row',
     justifyContent: 'flex-end',
     paddingVertical: 10,
-  },
-  btnLabel: {
-    fontWeight: 'bold',
-  },
-  btnSignIn: {
-    backgroundColor: 'red',
-  },
-  btnSocialGroup: {
-    flexDirection: 'row',
-  },
-  btnSocial: {
-    flex: 1,
   },
   icon: {
     width: 18,

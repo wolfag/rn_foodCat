@@ -12,13 +12,14 @@ import React from 'react';
 import {StyleSheet} from 'react-native';
 import LoginScreen from './src/screens/LoginScreen';
 import Splash from './src/screens/SplashScreen';
+import HomeScreen from './src/screens/HomeScreen';
 
 const Stack = createStackNavigator();
 
 const App = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
+      <Stack.Navigator initialRouteName="HomeScreen">
         <Stack.Screen
           name="Splash"
           options={{headerShown: false}}
@@ -28,6 +29,11 @@ const App = () => {
           name="LoginScreen"
           options={{headerShown: false}}
           component={LoginScreen}
+        />
+        <Stack.Screen
+          name="HomeScreen"
+          options={{headerShown: false}}
+          component={HomeScreen}
         />
       </Stack.Navigator>
     </NavigationContainer>
